@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Invitación de Boda · Hacienda Rubí</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,400;1,9..144,500&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  /* Paleta de atardecer de animación japonesa: cielo, durazno, prado, bosque, nube, oro, rosa */
+  --sky: #86b6dc;
+  --peach: #f6d3b6;
+  --meadow: #8db86b;
+  --forest: #35573a;
+  --cloud: #fdf9f1;
+  --gold: #e9b95a;
+  --rose: #d98b8b;
+  --ink: #2c3a33;
+  --ink-soft: #5b6b60;
+  --font-display: "Fraunces", Georgia, "Times New Roman", serif;
+  --font-body: "Nunito", "Segoe UI", system-ui, sans-serif;
+  /* Layout: paisaje pintado al atardecer arriba, tarjetas de papel apiladas en una columna */
+  color-scheme: light;
+}
+* { box-sizing: border-box; }
+html, body { margin: 0; }
+body {
+  background: linear-gradient(180deg, #1d3a33 0px, #1d3a33 610px, #6f8a80 800px, #e3e9e0 1200px, var(--cloud) 1600px);
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-size: 17px;
+  line-height: 1.6;
+}
+.hero { position: relative; height: 600px; overflow: hidden; }
+#paisaje { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
+.hero-text {
+  position: relative; z-index: 2; text-align: center;
+  padding: 52px 16px 0; color: var(--forest);
+}
+.anillos { width: 96px; height: 56px; display: block; margin: -18px auto 6px; filter: drop-shadow(0 2px 6px rgba(40,70,100,.45)); }
+.eyebrow {
+  font-size: 13px; letter-spacing: .24em; text-transform: uppercase;
+  font-weight: 700; color: #fff; margin: 0 0 10px;
+  text-shadow: 0 1px 6px rgba(53,87,58,.45);
+}
+.nombres {
+  font-family: var(--font-display); font-style: italic; font-weight: 500;
+  font-size: clamp(40px, 9vw, 72px); line-height: 1.05; margin: 0;
+  color: #fff; text-shadow: 0 2px 4px rgba(50,70,100,.55), 0 0 22px rgba(50,70,100,.45);
+  text-wrap: balance;
+}
+.nombres .y { color: #ffe6b0; font-weight: 400; padding: 0 .12em; }
+.fecha-hero {
+  font-family: var(--font-display); font-size: 20px; margin: 14px 0 0; color: #fff;
+  text-shadow: 0 1px 8px rgba(70,90,120,.5);
+}
+main {
+  max-width: 680px; margin: -36px auto 0; padding: 0 16px 48px;
+  position: relative; z-index: 3; display: grid; gap: 22px;
+}
+.card {
+  background: var(--cloud); border-radius: 22px; padding: 32px 28px;
+  box-shadow: 0 10px 30px rgba(53,87,58,.12); border: 1px solid rgba(53,87,58,.08);
+}
+h2 {
+  font-family: var(--font-display); font-weight: 600; font-size: 26px;
+  color: var(--forest); margin: 0 0 14px; text-wrap: balance;
+}
+.invitacion { text-align: center; }
+.invitacion p { max-width: 52ch; margin: 0 auto 14px; }
+.foto-pareja {
+  width: min(280px, 80%); aspect-ratio: 4 / 5; margin: 0 auto 24px;
+  border-radius: 999px 999px 24px 24px; overflow: hidden; position: relative;
+  border: 6px solid #fff; box-shadow: 0 8px 22px rgba(53,87,58,.18);
+  background: #dbe9f2;
+}
+.foto-finca {
+  width: 100%; aspect-ratio: 16 / 9; margin: 0 0 18px; border-radius: 18px;
+  overflow: hidden; position: relative; border: 6px solid #fff;
+  box-shadow: 0 8px 22px rgba(53,87,58,.14); background: #dbe9f2;
+}
+.foto-pareja img, .foto-finca img, .foto-pareja canvas, .foto-finca canvas {
+  position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block;
+}
+.nombres-completos {
+  font-family: var(--font-display); font-size: 21px; color: var(--forest);
+  line-height: 1.4; margin: 18px auto !important;
+}
+.nombres-completos .amp { display: block; font-style: italic; color: var(--rose); font-size: 18px; }
+.cita {
+  font-family: var(--font-display); font-style: italic; font-size: 19px;
+  color: var(--ink-soft); margin-top: 20px !important;
+}
+.hoja { width: 60px; height: 26px; margin: 6px auto 18px; display: block; }
+.pase {
+  text-align: center;
+  background: linear-gradient(180deg, #fff 0%, var(--cloud) 100%);
+  border: 2px dashed rgba(217,139,139,.55);
+}
+.pase .para { font-size: 13px; letter-spacing: .2em; text-transform: uppercase; font-weight: 700; color: var(--ink-soft); margin: 0; }
+.pase .invitado { font-family: var(--font-display); font-size: 26px; color: var(--forest); margin: 4px 0 10px; }
+.pase .cantidad { font-size: 18px; margin: 0; }
+.pase .num {
+  display: inline-block; min-width: 2.2em; font-family: var(--font-display); font-weight: 600;
+  font-size: 30px; color: var(--rose); border-bottom: 2px solid var(--rose);
+  line-height: 1.1; font-variant-numeric: tabular-nums; margin: 0 4px;
+}
+.detalles { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+.detalle {
+  background: #fff; border-radius: 16px; padding: 18px 12px; text-align: center;
+  border: 1px solid rgba(53,87,58,.1);
+}
+.detalle .etq { font-size: 12px; letter-spacing: .16em; text-transform: uppercase; color: var(--ink-soft); font-weight: 700; }
+.detalle .val { font-family: var(--font-display); font-size: 22px; color: var(--forest); line-height: 1.25; margin-top: 4px; }
+.detalle .sub { font-size: 14px; color: var(--ink-soft); }
+.cuenta { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin-top: 6px; }
+.cuenta div { background: var(--forest); color: var(--cloud); border-radius: 14px; padding: 14px 6px; text-align: center; }
+.cuenta b { display: block; font-family: var(--font-display); font-size: 30px; font-weight: 600; font-variant-numeric: tabular-nums; line-height: 1.1; }
+.cuenta span { font-size: 12px; letter-spacing: .12em; text-transform: uppercase; opacity: .85; }
+.ubicacion p { margin: 0 0 16px; }
+.botones { display: flex; flex-wrap: wrap; gap: 12px; }
+.btn {
+  display: inline-flex; align-items: center; gap: 10px; text-decoration: none;
+  font-weight: 700; font-size: 16px; padding: 13px 22px; border-radius: 999px;
+  transition: transform .15s ease, box-shadow .15s ease;
+}
+.btn:focus-visible { outline: 3px solid var(--gold); outline-offset: 3px; }
+.btn:hover { transform: translateY(-2px); box-shadow: 0 6px 14px rgba(0,0,0,.12); }
+.btn-waze { background: #33ccff; color: #0b2a3a; }
+.btn-maps { background: #fff; color: var(--forest); border: 2px solid var(--meadow); }
+.btn svg { width: 22px; height: 22px; flex: none; }
+.rsvp { text-align: center; }
+.rsvp p { margin: 0 auto 8px; max-width: 48ch; }
+footer { text-align: center; padding: 8px 16px 40px; font-family: var(--font-display); font-style: italic; color: var(--forest); font-size: 18px; }
+@media (max-width: 520px) {
+  .card { padding: 26px 18px; }
+  .detalles { grid-template-columns: 1fr; }
+  .cuenta b { font-size: 24px; }
+  .hero { height: 610px; }
+}
+@media (prefers-reduced-motion: reduce) { .btn { transition: none; } }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <canvas id="paisaje" aria-hidden="true"></canvas>
+  <div class="hero-text">
+    <p class="eyebrow">Nos casamos</p>
+    <h1 class="nombres">Luis Andres <span class="y">&amp;</span> Jakelin Lisseth</h1>
+    <p class="fecha-hero">Sábado 12 de diciembre de 2026</p>
+  </div>
+</header>
+
+<main>
+  <section class="card invitacion">
+    <div class="foto-pareja">
+      <!-- FOTO DE LA PAREJA: reemplazar el canvas por <img src="..." alt="Luis y Jakelin"> -->
+      <img src="pareja.jpg" alt="Luis y Jakelin" style="object-position: 52% 62%;">
+    </div>
+    <svg class="hoja" viewBox="0 0 60 26" aria-hidden="true">
+      <path d="M2 13h12M46 13h12" stroke="#8db86b" stroke-width="1.5"/>
+      <circle cx="25" cy="13" r="8" fill="none" stroke="#d6a548" stroke-width="2.5"/>
+      <circle cx="35" cy="13" r="8" fill="none" stroke="#d6a548" stroke-width="2.5"/>
+    </svg>
+    <h2>Con mucha alegría te invitamos</h2>
+    <p>Después de compartir tantos momentos juntos, hemos decidido unir nuestras vidas para siempre. Con la bendición de Dios y de nuestras familias, queremos que seas parte de este día tan especial.</p>
+    <p class="nombres-completos">Luis Andres Amaya Ascencio<span class="amp">y</span>Jakelin Lisseth Rivera Rivas</p>
+    <p>Nos encantaría celebrar contigo nuestra boda, rodeados de naturaleza, de las personas que más queremos y de todo el cariño que nos has dado.</p>
+    <p class="cita">“El amor no consiste en mirarse el uno al otro, sino en mirar juntos en la misma dirección.”</p>
+  </section>
+
+  <section class="card pase" aria-label="Pase de invitación">
+    <p class="para">Pase de invitación</p>
+    <p class="invitado" id="pase-nombre">Para ti y los tuyos</p>
+    <p class="cantidad">Válido para <span class="num" id="pase-num">&nbsp;</span> <span id="pase-palabra">personas</span></p>
+  </section>
+
+  <section class="card">
+    <h2>Detalles del evento</h2>
+    <div class="detalles">
+      <div class="detalle">
+        <div class="etq">Fecha</div>
+        <div class="val">12 de diciembre</div>
+        <div class="sub">Sábado, 2026</div>
+      </div>
+      <div class="detalle">
+        <div class="etq">Hora</div>
+        <div class="val">5:00 p. m.</div>
+        <div class="sub">Ceremonia y recepción</div>
+      </div>
+      <div class="detalle">
+        <div class="etq">Lugar</div>
+        <div class="val">Hacienda Rubí</div>
+        <div class="sub">San Miguel, El Salvador</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="card">
+    <h2>Faltan</h2>
+    <div class="cuenta" role="timer" aria-live="off">
+      <div><b id="cd-d">32</b><span>Días</span></div>
+      <div><b id="cd-h">00</b><span>Horas</span></div>
+      <div><b id="cd-m">00</b><span>Minutos</span></div>
+      <div><b id="cd-s">00</b><span>Segundos</span></div>
+    </div>
+  </section>
+
+  <section class="card ubicacion">
+    <h2>¿Cómo llegar?</h2>
+    <div class="foto-finca">
+      <!-- FOTO DE HACIENDA RUBÍ: reemplazar el canvas por <img src="..." alt="Hacienda Rubí"> -->
+      <img src="hacienda.jpg" alt="Hacienda Rubí" style="object-position: 60% 50%;">
+    </div>
+    <p>La celebración será en <strong>Hacienda Rubí Club &amp; Resort</strong>, sobre la Carretera Panamericana, San Miguel. Toca un botón para abrir la ruta en tu celular.</p>
+    <div class="botones">
+      <a class="btn btn-waze" href="https://waze.com/ul?ll=13.5190056%2C-88.2661069&amp;navigate=yes" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="#0b2a3a" d="M12 2.5c5.2 0 9 3.6 9 8.3 0 3.3-2 5.6-4.6 6.7.2.4.3.8.3 1.3a2.3 2.3 0 0 1-4.6 0h-2.4a2.3 2.3 0 0 1-4.5.5C3.4 18.7 2.3 17 2 15.4c-.1-.5.3-.9.8-.9.9 0 1.3-.6 1.3-1.6V11c0-4.8 3.6-8.5 7.9-8.5Zm-2.4 6a1 1 0 1 0 0 2 1 1 0 0 0 0-2Zm5 0a1 1 0 1 0 0 2 1 1 0 0 0 0-2Zm-5.3 4c.6 1.2 1.6 1.8 2.8 1.8s2.2-.6 2.8-1.8l-1-.5c-.4.8-1 1.2-1.8 1.2s-1.4-.4-1.8-1.2l-1 .5Z"/></svg>
+        Abrir en Waze
+      </a>
+      <a class="btn btn-maps" href="https://maps.app.goo.gl/W7AZSCdbroC9hVmUA" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="#d98b8b" d="M12 2a7 7 0 0 0-7 7c0 5.2 7 13 7 13s7-7.8 7-13a7 7 0 0 0-7-7Zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5Z"/></svg>
+        Abrir en Google Maps
+      </a>
+    </div>
+  </section>
+
+  <section class="card rsvp">
+    <h2>Confirma tu asistencia</h2>
+    <p>Tu presencia es nuestro mejor regalo. Por favor confírmanos tu asistencia antes del <strong>1 de diciembre</strong>.</p>
+  </section>
+</main>
+
+<footer>Con cariño, Luis &amp; Jakelin</footer>
+
+<script>
+(function () {
+  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* ================= Pase: nombre y cantidad desde el enlace =================
+     Agrega al final del enlace:  #familia-rivera-4   ->  "Familia Rivera", 4 personas
+                                  #4                  ->  solo la cantidad
+     Sin nada al final, la cantidad queda en blanco.                              */
+  function leerPase() {
+    var h = decodeURIComponent((location.hash || '').replace('#', '')).trim();
+    var nombreEl = document.getElementById('pase-nombre');
+    var numEl = document.getElementById('pase-num');
+    var palEl = document.getElementById('pase-palabra');
+    if (!h) { nombreEl.textContent = 'Para ti y los tuyos'; numEl.innerHTML = '&nbsp;'; palEl.textContent = 'personas'; return; }
+    var partes = h.split('-').filter(Boolean);
+    var n = null;
+    if (partes.length && /^\d+$/.test(partes[partes.length - 1])) n = parseInt(partes.pop(), 10);
+    var nombre = partes.map(function (p) { return p.charAt(0).toUpperCase() + p.slice(1).toLowerCase(); }).join(' ');
+    nombreEl.textContent = nombre || 'Para ti y los tuyos';
+    if (n) { numEl.textContent = n; palEl.textContent = n === 1 ? 'persona' : 'personas'; }
+    else { numEl.innerHTML = '&nbsp;'; palEl.textContent = 'personas'; }
+  }
+  leerPase();
+  window.addEventListener('hashchange', leerPase);
+
+  /* ================= Utilidades de pintura ================= */
+  function nubeGrande(c, x, y, s) {
+    // Cúmulo con sombra lavanda abajo y luz dorada arriba
+    var bolas = [[-1.6,0.3,0.9],[-0.8,-0.3,1.2],[0.3,-0.75,1.5],[1.5,-0.25,1.2],[2.4,0.3,0.85],[0.4,0.35,1.1],[-0.4,0.45,0.9],[1.3,0.5,0.9]];
+    var r = 34 * s;
+    c.fillStyle = 'rgba(176,170,206,0.85)';
+    c.beginPath();
+    bolas.forEach(function (b) { c.moveTo(x + b[0]*r + b[2]*r, y + b[1]*r + r*0.28); c.arc(x + b[0]*r, y + b[1]*r + r*0.28, b[2]*r, 0, 7); });
+    c.fill();
+    c.fillStyle = 'rgba(253,246,236,0.97)';
+    c.beginPath();
+    bolas.forEach(function (b) { c.moveTo(x + b[0]*r + b[2]*r*0.92, y + b[1]*r); c.arc(x + b[0]*r, y + b[1]*r, b[2]*r*0.92, 0, 7); });
+    c.fill();
+    c.fillStyle = 'rgba(255,214,150,0.55)';
+    c.beginPath();
+    bolas.forEach(function (b) { if (b[1] < 0) { c.moveTo(x + b[0]*r + b[2]*r*0.6 + r*0.15, y + b[1]*r - r*0.25); c.arc(x + b[0]*r + r*0.15, y + b[1]*r - r*0.25, b[2]*r*0.6, 0, 7); } });
+    c.fill();
+  }
+  function colina(c, w, h, base, amp, freq, phase, color) {
+    c.fillStyle = color; c.beginPath(); c.moveTo(0, h);
+    for (var x = 0; x <= w; x += 6) c.lineTo(x, base + Math.sin(x/w*freq + phase)*amp + Math.sin(x/w*freq*2.3 + phase)*amp*0.3);
+    c.lineTo(w, h); c.closePath(); c.fill();
+  }
+  function cielo(c, w, h) {
+    var g = c.createLinearGradient(0, 0, 0, h);
+    g.addColorStop(0, '#6fa6d6'); g.addColorStop(0.35, '#a9c6e2'); g.addColorStop(0.62, '#f3cdb6'); g.addColorStop(0.8, '#fbe1bd'); g.addColorStop(1, '#fbe8c8');
+    c.fillStyle = g; c.fillRect(0, 0, w, h);
+    var sol = c.createRadialGradient(w*0.5, h*0.66, 4, w*0.5, h*0.66, Math.max(w, h)*0.45);
+    sol.addColorStop(0, 'rgba(255,240,200,0.95)'); sol.addColorStop(0.2, 'rgba(250,210,150,0.5)'); sol.addColorStop(1, 'rgba(250,210,150,0)');
+    c.fillStyle = sol; c.fillRect(0, 0, w, h);
+  }
+  function montanas(c, w, h, base) {
+    c.fillStyle = 'rgba(150,160,200,0.55)';
+    c.beginPath(); c.moveTo(0, h);
+    for (var x = 0; x <= w; x += 6) c.lineTo(x, base - Math.abs(Math.sin(x/w*3.2 + 0.6))*h*0.09 - Math.sin(x/w*11)*h*0.01);
+    c.lineTo(w, h); c.fill();
+  }
+  function arbolGrande(c, x, y, s) {
+    c.fillStyle = '#5a4632';
+    c.beginPath(); c.moveTo(x - s*0.09, y); c.quadraticCurveTo(x - s*0.05, y - s*0.5, x - s*0.02, y - s*0.75); c.lineTo(x + s*0.05, y - s*0.75); c.quadraticCurveTo(x + s*0.07, y - s*0.45, x + s*0.12, y); c.fill();
+    var capas = [['#2f4f35', 0.06], ['#3f6b42', 0], ['#5c8a4f', -0.05]];
+    capas.forEach(function (cp, i) {
+      c.fillStyle = cp[0];
+      var dy = cp[1]*s;
+      [[0,-1.0,0.5],[-0.42,-0.82,0.36],[0.42,-0.84,0.38],[-0.2,-1.25,0.36],[0.25,-1.22,0.34],[-0.62,-0.62,0.24],[0.62,-0.64,0.26]].forEach(function (b) {
+        c.beginPath(); c.arc(x + b[0]*s + i*0.02*s, y + b[1]*s + dy, b[2]*s*(1 - i*0.12), 0, 7); c.fill();
+      });
+    });
+  }
+  function luces(c, x1, y1, x2, y2, comba, t, n) {
+    c.strokeStyle = 'rgba(70,60,50,0.5)'; c.lineWidth = 1;
+    c.beginPath(); c.moveTo(x1, y1); c.quadraticCurveTo((x1+x2)/2, Math.max(y1,y2) + comba, x2, y2); c.stroke();
+    for (var i = 1; i < n; i++) {
+      var u = i / n, mx = (x1+x2)/2, my = Math.max(y1,y2) + comba;
+      var px = (1-u)*(1-u)*x1 + 2*(1-u)*u*mx + u*u*x2;
+      var py = (1-u)*(1-u)*y1 + 2*(1-u)*u*my + u*u*y2;
+      var a = 0.65 + 0.35*Math.sin(t*0.003 + i*1.7);
+      var g = c.createRadialGradient(px, py+3, 0, px, py+3, 9);
+      g.addColorStop(0, 'rgba(255,230,160,' + a + ')'); g.addColorStop(1, 'rgba(255,230,160,0)');
+      c.fillStyle = g; c.beginPath(); c.arc(px, py+3, 9, 0, 7); c.fill();
+      c.fillStyle = '#fff3c9'; c.beginPath(); c.arc(px, py+3, 2.2, 0, 7); c.fill();
+    }
+  }
+  function arco(c, x, y, s) {
+    // Arco floral de boda
+    c.strokeStyle = '#f4ead8'; c.lineWidth = s*0.06; c.lineCap = 'round';
+    c.beginPath(); c.moveTo(x - s*0.5, y); c.lineTo(x - s*0.5, y - s*0.7); c.arc(x, y - s*0.7, s*0.5, Math.PI, 0); c.lineTo(x + s*0.5, y); c.stroke();
+    var flores = ['#f2b8b5', '#fdf6ee', '#e88f95', '#f7d7a8', '#fdf6ee'];
+    for (var i = 0; i <= 26; i++) {
+      var ang = Math.PI + (i/26)*Math.PI*0.9 + 0.05;
+      var fx = x + Math.cos(ang)*s*0.5, fy = y - s*0.7 + Math.sin(ang)*s*0.5;
+      c.fillStyle = i % 3 ? '#6e9e52' : '#4f7a46';
+      c.beginPath(); c.ellipse(fx + s*0.03, fy + s*0.02, s*0.05, s*0.025, ang, 0, 7); c.fill();
+      c.fillStyle = flores[i % flores.length];
+      c.beginPath(); c.arc(fx, fy, s*(0.035 + (i%2)*0.015), 0, 7); c.fill();
+    }
+    [[-0.5, 1], [0.5, -1]].forEach(function (p) {
+      for (var k = 0; k < 7; k++) {
+        c.fillStyle = flores[(k+2) % flores.length];
+        c.beginPath(); c.arc(x + p[0]*s + (k%2 ? 0.04 : -0.04)*s*p[1], y - s*(0.05 + k*0.08), s*0.04, 0, 7); c.fill();
+      }
+    });
+  }
+  function hacienda(c, x, y, s) {
+    c.fillStyle = '#f6ecd8'; c.fillRect(x, y - s*0.5, s*1.8, s*0.5);
+    c.fillStyle = '#b8574a';
+    c.beginPath(); c.moveTo(x - s*0.1, y - s*0.48); c.lineTo(x + s*0.25, y - s*0.78); c.lineTo(x + s*1.55, y - s*0.78); c.lineTo(x + s*1.9, y - s*0.48); c.closePath(); c.fill();
+    c.fillStyle = '#9a4a3f'; c.fillRect(x - s*0.1, y - s*0.5, s*2, s*0.04);
+    c.fillStyle = '#7a5a40';
+    for (var i = 0; i < 5; i++) { c.beginPath(); c.moveTo(x + s*(0.12 + i*0.34), y); c.lineTo(x + s*(0.12 + i*0.34), y - s*0.26); c.arc(x + s*(0.22 + i*0.34), y - s*0.26, s*0.1, Math.PI, 0); c.lineTo(x + s*(0.32 + i*0.34), y); c.fill(); }
+  }
+
+  /* ================= Paisaje del encabezado: noche estrellada con luna,
+     nubes iluminadas, colinas, luciérnagas y anillos brillando ================= */
+  var cv = document.getElementById('paisaje'), ctx = cv.getContext('2d');
+  var W, H, estrellas = [], luciernagas = [], nubes = [], fugaz = 0;
+  function rnd(seed) { var x = Math.sin(seed) * 10000; return x - Math.floor(x); }
+  function size() {
+    var r = cv.getBoundingClientRect(), d = window.devicePixelRatio || 1;
+    W = r.width; H = r.height; cv.width = W*d; cv.height = H*d; ctx.setTransform(d, 0, 0, d, 0, 0);
+  }
+  function colinaY(x, base, amp, f, ph) { return base + Math.sin(x/W*f + ph)*amp + Math.sin(x/W*f*2.3 + ph)*amp*0.35; }
+  function semilla() {
+    var i, n = Math.round(W*H/2200);
+    estrellas = [];
+    for (i = 0; i < n; i++) estrellas.push({ x: rnd(i+1)*W, y: rnd(i+501)*H*0.72, r: 0.4 + Math.pow(rnd(i+1001), 3)*1.8, f: rnd(i+1501)*6.28, v: 0.001 + rnd(i+2001)*0.003 });
+    luciernagas = [];
+    for (i = 0; i < 28; i++) luciernagas.push({ x: rnd(i+3001), y: 0.70 + rnd(i+3101)*0.28, f: rnd(i+3201)*6.28, r: 1.6 + rnd(i+3301)*1.6 });
+    nubes = [
+      {x: 0.12, y: 0.50, s: 1.0, v: 0.004},
+      {x: 0.55, y: 0.56, s: 1.25, v: 0.003},
+      {x: 0.95, y: 0.47, s: 0.85, v: 0.005}
+    ];
+  }
+  function cieloNoche(c, w, h) {
+    var g = c.createLinearGradient(0, 0, 0, h);
+    g.addColorStop(0, '#0b1433'); g.addColorStop(0.45, '#1c3266'); g.addColorStop(0.75, '#35598a'); g.addColorStop(1, '#5b7fa3');
+    c.fillStyle = g; c.fillRect(0, 0, w, h);
+    // vía láctea suave
+    c.save(); c.translate(w*0.5, h*0.35); c.rotate(-0.35);
+    var v = c.createLinearGradient(0, -h*0.12, 0, h*0.12);
+    v.addColorStop(0, 'rgba(160,180,255,0)'); v.addColorStop(0.5, 'rgba(190,200,255,0.13)'); v.addColorStop(1, 'rgba(160,180,255,0)');
+    c.fillStyle = v; c.fillRect(-w, -h*0.12, w*2, h*0.24); c.restore();
+  }
+  function luna(c, x, y, r) {
+    var g = c.createRadialGradient(x, y, r*0.8, x, y, r*5);
+    g.addColorStop(0, 'rgba(255,244,210,0.45)'); g.addColorStop(1, 'rgba(255,244,210,0)');
+    c.fillStyle = g; c.beginPath(); c.arc(x, y, r*5, 0, 7); c.fill();
+    c.fillStyle = '#fff6dc'; c.beginPath(); c.arc(x, y, r, 0, 7); c.fill();
+    c.fillStyle = 'rgba(220,205,170,0.45)';
+    [[-0.3,-0.2,0.18],[0.25,0.15,0.13],[-0.05,0.4,0.1]].forEach(function (k) { c.beginPath(); c.arc(x + k[0]*r, y + k[1]*r, k[2]*r, 0, 7); c.fill(); });
+  }
+  function nubeNoche(c, x, y, s, lx) {
+    var r = 30*s, bolas = [[-1.4,0.3,0.8],[-0.6,-0.2,1.1],[0.5,-0.5,1.3],[1.6,-0.1,1.0],[2.4,0.35,0.7],[0.4,0.35,1.0]];
+    c.fillStyle = 'rgba(40,62,110,0.9)'; c.beginPath();
+    bolas.forEach(function (b) { c.moveTo(x + b[0]*r + b[2]*r, y + b[1]*r + r*0.2); c.arc(x + b[0]*r, y + b[1]*r + r*0.2, b[2]*r, 0, 7); }); c.fill();
+    c.fillStyle = 'rgba(120,145,195,0.9)'; c.beginPath();
+    bolas.forEach(function (b) { c.moveTo(x + b[0]*r + b[2]*r*0.9, y + b[1]*r); c.arc(x + b[0]*r, y + b[1]*r, b[2]*r*0.9, 0, 7); }); c.fill();
+    // borde iluminado por la luna
+    c.fillStyle = 'rgba(235,235,255,0.55)'; c.beginPath();
+    bolas.forEach(function (b) { if (b[1] < 0.1) { var ox = (lx > x ? 0.2 : -0.2)*r; c.moveTo(x + b[0]*r + ox + b[2]*r*0.55, y + b[1]*r - r*0.3); c.arc(x + b[0]*r + ox, y + b[1]*r - r*0.3, b[2]*r*0.55, 0, 7); } }); c.fill();
+  }
+  function colinaRelleno(c, base, amp, f, ph, color) {
+    c.fillStyle = color; c.beginPath(); c.moveTo(0, H);
+    for (var x = 0; x <= W; x += 5) c.lineTo(x, colinaY(x, base, amp, f, ph));
+    c.lineTo(W, H); c.fill();
+  }
+  function pino(c, x, y, h, col) {
+    c.fillStyle = col; c.beginPath();
+    for (var i = 0; i < 4; i++) { var yy = y - h*(0.25 + i*0.22), ww = h*(0.32 - i*0.06); c.moveTo(x - ww, yy + h*0.22); c.lineTo(x, yy - h*0.12); c.lineTo(x + ww, yy + h*0.22); }
+    c.fill(); c.fillRect(x - h*0.03, y - h*0.25, h*0.06, h*0.25);
+  }
+  function anillosFondo(c, x, y, r, t) {
+    // sombra en el pasto
+    c.fillStyle = 'rgba(40,80,40,0.28)';
+    c.beginPath(); c.ellipse(x + r*0.55, y + r*0.1, r*1.9, r*0.22, 0, 0, 7); c.fill();
+    var g = c.createLinearGradient(x - r, y - 2*r, x + 2*r, y);
+    g.addColorStop(0, '#fff6cf'); g.addColorStop(0.4, '#ecc064'); g.addColorStop(0.75, '#b8822f'); g.addColorStop(1, '#f3d27a');
+    c.lineWidth = r*0.2; c.strokeStyle = g;
+    c.shadowColor = 'rgba(255,230,160,0.6)'; c.shadowBlur = r*0.4;
+    // anillo izquierdo (inclinado) y derecho, entrelazados
+    c.beginPath(); c.ellipse(x, y - r*0.95, r*0.95, r*0.95, 0, 0, 7); c.stroke();
+    c.beginPath(); c.ellipse(x + r*1.15, y - r*0.92, r*0.8, r*0.92, 0.25, 0, 7); c.stroke();
+    // volver a pintar el tramo del izquierdo que pasa por delante
+    c.beginPath(); c.ellipse(x, y - r*0.95, r*0.95, r*0.95, 0, -0.75, 0.35); c.stroke();
+    c.shadowBlur = 0;
+    // brillo
+    c.strokeStyle = 'rgba(255,255,240,0.9)'; c.lineWidth = r*0.05; c.lineCap = 'round';
+    c.beginPath(); c.arc(x, y - r*0.95, r*0.95, 3.5, 4.2); c.stroke();
+    // diamante
+    var dx = x + r*1.15 + Math.sin(0.25)*r*0.92, dy = y - r*0.92 - r*0.98;
+    dx = x + r*1.38; dy = y - r*1.85;
+    c.fillStyle = '#eefaff'; c.strokeStyle = '#a9d4ea'; c.lineWidth = 1.2;
+    c.beginPath(); c.moveTo(dx, dy - r*0.28); c.lineTo(dx + r*0.22, dy - r*0.08); c.lineTo(dx, dy + r*0.12); c.lineTo(dx - r*0.22, dy - r*0.08); c.closePath(); c.fill(); c.stroke();
+    // destello que titila
+    var a = 0.5 + 0.5*Math.sin(t*0.004);
+    c.strokeStyle = 'rgba(255,255,255,' + a + ')'; c.lineWidth = 1.6;
+    var L = r*0.35*(0.6 + a*0.4);
+    c.beginPath(); c.moveTo(dx - L, dy - r*0.1); c.lineTo(dx + L, dy - r*0.1); c.moveTo(dx, dy - r*0.1 - L); c.lineTo(dx, dy - r*0.1 + L); c.stroke();
+  }
+  function dibujar(t) {
+    var s = Math.max(0.65, Math.min(1.3, W / 950)), mov = reduce ? 0 : t;
+    cieloNoche(ctx, W, H);
+    estrellas.forEach(function (e) {
+      var a = 0.45 + 0.55*Math.abs(Math.sin(e.f + mov*e.v));
+      ctx.fillStyle = 'rgba(255,250,235,' + a + ')'; ctx.beginPath(); ctx.arc(e.x, e.y, e.r, 0, 7); ctx.fill();
+      if (e.r > 1.6) { ctx.strokeStyle = 'rgba(255,250,235,' + a*0.5 + ')'; ctx.lineWidth = 0.8; ctx.beginPath(); ctx.moveTo(e.x - e.r*3, e.y); ctx.lineTo(e.x + e.r*3, e.y); ctx.moveTo(e.x, e.y - e.r*3); ctx.lineTo(e.x, e.y + e.r*3); ctx.stroke(); }
+    });
+    // estrella fugaz cada cierto tiempo
+    if (!reduce) {
+      var ciclo = (t % 9000) / 1400;
+      if (ciclo < 1) {
+        var sx = W*0.15 + ciclo*W*0.35, sy = H*0.08 + ciclo*H*0.14;
+        var gr = ctx.createLinearGradient(sx - 90*s, sy - 36*s, sx, sy);
+        gr.addColorStop(0, 'rgba(255,255,255,0)'); gr.addColorStop(1, 'rgba(255,255,255,' + (1 - ciclo) + ')');
+        ctx.strokeStyle = gr; ctx.lineWidth = 2; ctx.beginPath(); ctx.moveTo(sx - 90*s, sy - 36*s); ctx.lineTo(sx, sy); ctx.stroke();
+      }
+    }
+    var lx = W*0.84, ly = H*(W < 600 ? 0.46 : 0.30);
+    luna(ctx, lx, ly, 26*s);
+    nubes.forEach(function (n) { var x = ((n.x*W + mov*n.v) % (W + 300)) - 150; nubeNoche(ctx, x, n.y*H, n.s*s, lx); });
+    colinaRelleno(ctx, H*0.74, 18, 4, 1.2, '#2c4a6a');
+    colinaRelleno(ctx, H*0.81, 16, 3, 3.1, '#24434f');
+    for (var i = 0; i < 9; i++) { var px = rnd(i+4001)*W; pino(ctx, px, colinaY(px, H*0.81, 16, 3, 3.1) + 4, (50 + rnd(i+4101)*40)*s, '#1b3540'); }
+    colinaRelleno(ctx, H*0.89, 12, 3, 0.4, '#1d3a33');
+    // flores claras bajo la luna
+    for (i = 0; i < 90; i++) {
+      var fx = rnd(i+5001)*W, top = colinaY(fx, H*0.89, 12, 3, 0.4), fy = top + 4 + rnd(i+5101)*(H - top);
+      ctx.fillStyle = ['rgba(240,240,255,0.8)', 'rgba(250,215,225,0.75)', 'rgba(255,235,180,0.7)'][i % 3];
+      ctx.beginPath(); ctx.arc(fx, fy, 1.4 + rnd(i+5201)*1.6, 0, 7); ctx.fill();
+    }
+    var rg = Math.max(34, 50*s), rx = W*(W < 600 ? 0.56 : 0.66);
+    // halo bajo los anillos
+    var hal = ctx.createRadialGradient(rx + rg*0.6, colinaY(rx, H*0.89, 12, 3, 0.4) - rg, 0, rx + rg*0.6, colinaY(rx, H*0.89, 12, 3, 0.4) - rg, rg*3.2);
+    hal.addColorStop(0, 'rgba(255,220,140,0.35)'); hal.addColorStop(1, 'rgba(255,220,140,0)');
+    ctx.fillStyle = hal; ctx.fillRect(rx - rg*3, colinaY(rx, H*0.89, 12, 3, 0.4) - rg*4.5, rg*7, rg*6);
+    anillosFondo(ctx, rx, colinaY(rx + rg, H*0.89, 12, 3, 0.4) + 10, rg, t);
+    // luciérnagas
+    luciernagas.forEach(function (l, k) {
+      var x = l.x*W + Math.sin(mov*0.0006 + l.f)*40, y = l.y*H + Math.cos(mov*0.0009 + l.f*2)*14;
+      var a = 0.35 + 0.65*Math.abs(Math.sin(mov*0.002 + l.f));
+      var g = ctx.createRadialGradient(x, y, 0, x, y, l.r*6);
+      g.addColorStop(0, 'rgba(255,236,140,' + a + ')'); g.addColorStop(1, 'rgba(255,236,140,0)');
+      ctx.fillStyle = g; ctx.beginPath(); ctx.arc(x, y, l.r*6, 0, 7); ctx.fill();
+      ctx.fillStyle = 'rgba(255,250,210,' + a + ')'; ctx.beginPath(); ctx.arc(x, y, l.r*0.8, 0, 7); ctx.fill();
+    });
+  }
+  size(); semilla(); dibujar(0);
+  window.addEventListener('resize', function () { size(); semilla(); dibujar(performance.now()); });
+  if (!reduce) (function loop(t) { dibujar(t); requestAnimationFrame(loop); })(0);
+
+  /* ================= Ilustraciones provisionales de las fotos ================= */
+  document.querySelectorAll('.foto-pareja canvas, .foto-finca canvas').forEach(function (c) {
+    var r = c.getBoundingClientRect(), d = window.devicePixelRatio || 1, w = r.width, h = r.height;
+    c.width = w*d; c.height = h*d;
+    var x = c.getContext('2d'); x.setTransform(d, 0, 0, d, 0, 0);
+    cieloAzul(x, w, h);
+    var k = Math.min(w, h);
+    nubeGrande(x, w*0.25, h*0.25, k/300);
+    nubeGrande(x, w*0.78, h*0.38, k/400);
+    montanas(x, w, h, h*0.72);
+    colina(x, w, h, h*0.74, 10, 4, 1, '#b9d39a');
+    colina(x, w, h, h*0.82, 10, 3, 2.5, '#93bd70');
+    if (c.dataset.escena === 'finca') {
+      hacienda(x, w*0.32, h*0.86, w*0.2);
+      arbolGrande(x, w*0.18, h*0.88, h*0.42);
+      arbolGrande(x, w*0.86, h*0.87, h*0.36);
+    } else {
+    }
+    colina(x, w, h, h*0.93, 5, 3, 0.3, '#6e9e52');
+  });
+
+  /* ================= Cuenta regresiva (hora de El Salvador, UTC-6) ================= */
+  var objetivo = new Date('2026-12-12T17:00:00-06:00').getTime();
+  function pad(n) { return (n < 10 ? '0' : '') + n; }
+  function tick() {
+    var r = Math.max(0, objetivo - Date.now());
+    document.getElementById('cd-d').textContent = Math.floor(r / 864e5);
+    document.getElementById('cd-h').textContent = pad(Math.floor(r / 36e5) % 24);
+    document.getElementById('cd-m').textContent = pad(Math.floor(r / 6e4) % 60);
+    document.getElementById('cd-s').textContent = pad(Math.floor(r / 1e3) % 60);
+  }
+  tick(); setInterval(tick, 1000);
+})();
+</script>
+</body>
+</html>
